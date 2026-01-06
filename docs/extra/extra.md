@@ -15,3 +15,5 @@ path: /mqtt
 For initial testing, [MQTTX](https://mqttx.app/) can be used. 
 
 Contact us for user and password information.
+
+This server will go offline shortly after the bootcamp, for your own testing you can use [test.mosquitto.org](https://test.mosquitto.org/)
