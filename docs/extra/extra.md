@@ -1,45 +1,38 @@
 # Extra projects
 
-## MQTT 
+## MQTT
 
-Frosti was interested in exploring the MQTT protocol. 
+Frosti explored the MQTT protocol using a simple ESP32C3 demo setup.
 
-For initial testing on Windows, [MQTTX](https://mqttx.app/) can be used. 
+For initial testing on Windows, [MQTTX](https://mqttx.app/) can be used.
 
-**Todo: Add mqttx connection info**
+**Todo: Add MQTTX connection info**
 
-This server is used for testing: [test.mosquitto.org](https://test.mosquitto.org/)
+The public test broker used is: [test.mosquitto.org](https://test.mosquitto.org/)
 
-Xiao ESP32C3 code can be found here: [frosti](/docs/extra/frosti.ino) 
+Xiao ESP32C3 code can be found here: [frosti](/docs/extra/frosti.ino)
 
 ### What the ESP32 code does
 
-The ESP32C3 connects to WiFi and then connects to an MQTT broker.  
-It publishes small JSON messages regularly and listens for incoming commands.
+The ESP32C3 connects to WiFi, then connects to the MQTT broker and starts publishing plain text messages.  
+It also listens for incoming messages and prints them to the Serial monitor.
 
 ### Features
 
-- **Connects to WiFi** and keeps reconnecting automatically if WiFi drops
-- **Connects to MQTT broker** and reconnects automatically if MQTT disconnects
-- **Publishes JSON messages**:
-  - `frosti/status` every 60 seconds (random status message)
-  - `frosti/data` every 30 seconds (random value 0–100)
-- **Subscribes to commands**:
-  - Listens on `frosti/esp` and prints received messages to Serial
-  - Attempts to parse JSON payloads, numbers, or plain text
-- **Presence / LWT support**:
-  - Publishes `frosti/presence` with `"online"` (retained)
-  - Broker publishes `"offline"` automatically if device disconnects unexpectedly
+- Connects to WiFi and reconnects automatically if the connection drops
+- Connects to the MQTT broker and reconnects automatically if MQTT disconnects
+- Publishes a random status string to:
+  - `frosti/status` every 10 seconds
+- Subscribes to:
+  - `frosti/esp` and prints received payloads to Serial
 
 ### Terminal commands on Linux
 
 To listen for messages:
 
-
 ```
 mosquitto_sub -h test.mosquitto.org -p 1883 -V mqttv311 -t 'frosti/#' -v -d
 ```
-
 
 To send a command:
 ```
