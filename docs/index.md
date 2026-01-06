@@ -1,3 +1,3 @@
 # Index
 
-Bootcamp
+Bootcamp '26, please document!
