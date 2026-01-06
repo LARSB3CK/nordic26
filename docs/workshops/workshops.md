@@ -2,7 +2,7 @@
 
 ## Generative AI
 
-ComfyUI + model
+ComfyUI and the Hunyuan 2.1 model
 
 ## Xtool Metal FAB
 
