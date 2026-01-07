@@ -1,174 +1,214 @@
-/*
-  Frosti ESP32C3 - MQTT Minimal Demo (Strings only)
-
-  - Publishes:
-      frosti/status every 10 seconds (random string)
-  - Subscribes:
-      frosti/esp -> prints received payload to Serial
-
-  Broker:
-      test.mosquitto.org :1883 (no TLS, no auth)
-*/
-
 #include <WiFi.h>
-#include <WiFiClient.h>
-#include <MQTTClient.h>
+#include <PubSubClient.h>
+#include <Wire.h>
+#include <U8g2lib.h>
 
-// -------------------- WiFi --------------------
-const char* WIFI_SSID = "Stettin-Gestir";
-const char* WIFI_PASS = "12345abcde";
+// ========= USER SETTINGS =========
+const char* ssid     = "Stettin-Gestir";
+const char* password = "12345abcde";
 
-// -------------------- MQTT --------------------
-const char* MQTT_HOST = "test.mosquitto.org";
-const uint16_t MQTT_PORT = 1883;
+// Try IPv4 first to avoid DNS/IPv6 issues on some networks
+const char* mqtt_server = "test.mosquitto.org";
+const int   mqtt_port   = 1883;
 
-// -------------------- Topics --------------------
-const char* TOPIC_STATUS  = "frosti/status";
-const char* TOPIC_COMMAND = "frosti/esp";
+const char* mqtt_topic  = "frosti/b1/telemetry";
+const char* device_id   = "frosti-b1";
+// ================================
 
-// -------------------- Timing --------------------
-const unsigned long PUBLISH_INTERVAL_MS = 10UL * 1000UL;
-unsigned long lastPublishMs = 0;
+// MQTT
+WiFiClient espClient;
+PubSubClient client(espClient);
 
-// -------------------- Random message list --------------------
-const char* statusMessages[] = {
-  "Hæ, ég heiti Frosti!",
-  "Frosta í framboð!",
-  "Frosti er flottastur!",
-  "Frostmannaeyjar eru bestar!"
-};
-const int STATUS_MSG_COUNT = sizeof(statusMessages) / sizeof(statusMessages[0]);
+// OLED (XIAO Expansion Board)
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
-// -------------------- MQTT client --------------------
-WiFiClient net;
-MQTTClient mqtt(256);
+// Rotary sensor
+const int analogPin = A0;
 
-bool mqttConnected = false;
-String deviceId;
+// Timers
+unsigned long lastPublish = 0;
+unsigned long lastOLED = 0;
+unsigned long seq = 0;
 
-// Forward declarations
-void connectWiFi();
-void connectMQTT();
-void mqttMessageReceived(String &topic, String &payload);
+// Last readings (for OLED refresh)
+int lastRaw = 0;
+float lastPercent = 0;
+float lastVoltage = 0;
 
-void setup() {
-  Serial.begin(115200);
-  delay(200);
-
-  deviceId = "frosti-" + String((uint32_t)ESP.getEfuseMac(), HEX);
-
-  Serial.println();
-  Serial.println("=== Frosti ESP32C3 MQTT Minimal Demo ===");
-  Serial.print("Device ID: ");
-  Serial.println(deviceId);
-
-  randomSeed(esp_random());
-
-  connectWiFi();
-  connectMQTT();
+// Show brief status message on OLED (helper)
+void oledSplash(const char* msg1, const char* msg2 = "") {
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_6x10_tf);
+  u8g2.drawStr(0, 14, msg1);
+  u8g2.drawStr(0, 30, msg2);
+  u8g2.sendBuffer();
 }
 
-void loop() {
-  // Maintain MQTT connection
-  if (mqttConnected) {
-    mqtt.loop();
-  }
-
-  // WiFi reconnect
-  if (WiFi.status() != WL_CONNECTED) {
-    Serial.println("[WiFi] Lost connection. Reconnecting...");
-    connectWiFi();
-    mqttConnected = false;  // force MQTT reconnect after WiFi is back
-  }
-
-  // MQTT reconnect
-  if (!mqttConnected) {
-    static unsigned long lastTry = 0;
-    if (millis() - lastTry > 3000) {
-      lastTry = millis();
-      Serial.println("[MQTT] Reconnecting...");
-      connectMQTT();
-    }
-  }
-
-  // Publish every interval
-  unsigned long now = millis();
-  if (mqttConnected && (now - lastPublishMs >= PUBLISH_INTERVAL_MS)) {
-    lastPublishMs = now;
-
-    int idx = random(0, STATUS_MSG_COUNT);
-    const char* msg = statusMessages[idx];
-
-    mqtt.publish(TOPIC_STATUS, msg);
-
-    Serial.print("[PUB] ");
-    Serial.print(TOPIC_STATUS);
-    Serial.print(" -> ");
-    Serial.println(msg);
-  }
-
-  delay(5);
-}
-
-// -------------------- WiFi Connect --------------------
-void connectWiFi() {
-  Serial.print("[WiFi] Connecting to ");
-  Serial.println(WIFI_SSID);
+void setup_wifi() {
+  oledSplash("WiFi...", "Connecting");
+  Serial.print("Connecting to WiFi: ");
+  Serial.println(ssid);
 
   WiFi.mode(WIFI_STA);
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  WiFi.begin(ssid, password);
 
   unsigned long start = millis();
   while (WiFi.status() != WL_CONNECTED) {
-    delay(250);
+    delay(500);
     Serial.print(".");
-    if (millis() - start > 20000) {
-      Serial.println("\n[WiFi] Timeout. Retrying...");
+    if (millis() - start > 20000) {  // 20s timeout
+      Serial.println("\nWiFi connect timeout, restarting WiFi...");
       WiFi.disconnect();
-      WiFi.begin(WIFI_SSID, WIFI_PASS);
+      WiFi.begin(ssid, password);
       start = millis();
     }
   }
 
-  Serial.println();
-  Serial.print("[WiFi] Connected. IP: ");
+  Serial.println("\nWiFi connected!");
+  Serial.print("IP: ");
   Serial.println(WiFi.localIP());
+  Serial.print("RSSI: ");
+  Serial.println(WiFi.RSSI());
+
+  oledSplash("WiFi connected", WiFi.localIP().toString().c_str());
+  delay(800);
 }
 
-// -------------------- MQTT Connect --------------------
-void connectMQTT() {
-  if (WiFi.status() != WL_CONNECTED) return;
+void reconnect_mqtt() {
+  oledSplash("MQTT...", "Connecting");
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection to ");
+    Serial.print(mqtt_server);
+    Serial.print(":");
+    Serial.print(mqtt_port);
+    Serial.print(" ... ");
 
-  mqtt.begin(MQTT_HOST, MQTT_PORT, net);
-  mqtt.onMessage(mqttMessageReceived);
+    String clientId = "XIAO-ESP32C3-" + String(random(0xffff), HEX);
 
-  Serial.print("[MQTT] Connecting to ");
-  Serial.print(MQTT_HOST);
-  Serial.print(":");
-  Serial.println(MQTT_PORT);
+    if (client.connect(clientId.c_str())) {
+      Serial.println("connected!");
+      oledSplash("MQTT connected", mqtt_server);
+      delay(500);
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" retrying in 2s...");
+      oledSplash("MQTT failed", "Retrying...");
+      delay(2000);
+    }
+  }
+}
 
-  bool ok = mqtt.connect(deviceId.c_str());
+void updateReadings() {
+  lastRaw = analogRead(analogPin);
+  lastPercent = (lastRaw / 4095.0) * 100.0;
+  lastVoltage = (lastRaw / 4095.0) * 3.3;
+}
 
-  if (!ok) {
-    Serial.print("[MQTT] Connect failed. Error: ");
-    Serial.println(mqtt.lastError());
-    mqttConnected = false;
-    return;
+void updateOLED() {
+  // Status fields
+  bool wifiOk = (WiFi.status() == WL_CONNECTED);
+  bool mqttOk = client.connected();
+  int rssi = wifiOk ? WiFi.RSSI() : 0;
+
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_6x10_tf);
+
+  // Header
+  u8g2.drawStr(0, 12, "Frosti Buoy B1");
+
+  // WiFi + MQTT status
+  char line0[32];
+  snprintf(line0, sizeof(line0), "WiFi:%s RSSI:%d",
+           wifiOk ? "OK" : "NO", wifiOk ? rssi : 0);
+  u8g2.drawStr(0, 26, line0);
+
+  char line1[32];
+  snprintf(line1, sizeof(line1), "MQTT:%s Seq:%lu",
+           mqttOk ? "OK" : "NO", seq);
+  u8g2.drawStr(0, 38, line1);
+
+  // Sensor values
+  char line2[32];
+  snprintf(line2, sizeof(line2), "Raw:%d  %.1f%%", lastRaw, lastPercent);
+  u8g2.drawStr(0, 52, line2);
+
+  char line3[32];
+  snprintf(line3, sizeof(line3), "V: %.2fV", lastVoltage);
+  u8g2.drawStr(0, 64, line3);
+
+  u8g2.sendBuffer();
+}
+
+void publishMQTT() {
+  char payload[160];
+  snprintf(payload, sizeof(payload),
+           "{\"device\":\"%s\",\"seq\":%lu,\"raw\":%d,\"percent\":%.1f,\"voltage\":%.2f}",
+           device_id, seq, lastRaw, lastPercent, lastVoltage);
+
+  bool ok = client.publish(mqtt_topic, payload);
+
+  Serial.print("Published to ");
+  Serial.print(mqtt_topic);
+  Serial.print(" : ");
+  Serial.print(payload);
+  Serial.print("  [");
+  Serial.print(ok ? "OK" : "FAILED");
+  Serial.println("]");
+
+  seq++;
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(800);
+  Serial.println("Starting Frosti B1: OLED + MQTT + Rotary");
+
+  analogReadResolution(12);
+  randomSeed(micros());
+
+  // Init I2C + OLED
+  Wire.begin();
+  u8g2.begin();
+
+  oledSplash("Frosti Buoy B1", "Booting...");
+  delay(800);
+
+  setup_wifi();
+
+  // MQTT
+  client.setServer(mqtt_server, mqtt_port);
+  client.setSocketTimeout(10); // seconds
+  client.setKeepAlive(30);     // seconds
+}
+
+void loop() {
+  // Ensure WiFi
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("WiFi disconnected. Reconnecting...");
+    setup_wifi();
   }
 
-  mqttConnected = true;
-  Serial.println("[MQTT] Connected ✅");
+  // Ensure MQTT
+  if (!client.connected()) {
+    reconnect_mqtt();
+  }
+  client.loop();
 
-  mqtt.subscribe(TOPIC_COMMAND);
-  Serial.print("[MQTT] Subscribed to ");
-  Serial.println(TOPIC_COMMAND);
-}
+  // Update sensor readings frequently (so OLED looks responsive)
+  updateReadings();
 
-// -------------------- Incoming MQTT Message --------------------
-void mqttMessageReceived(String &topic, String &payload) {
-  Serial.println();
-  Serial.print("[SUB] ");
-  Serial.print(topic);
-  Serial.print(" -> ");
-  Serial.println(payload);
+  unsigned long now = millis();
+
+  // OLED refresh ~5 times per second (every 200ms)
+  if (now - lastOLED >= 200) {
+    lastOLED = now;
+    updateOLED();
+  }
+
+  // Publish every 3 seconds
+  if (now - lastPublish >= 3000) {
+    lastPublish = now;
+    publishMQTT();
+  }
 }
