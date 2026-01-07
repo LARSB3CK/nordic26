@@ -78,6 +78,21 @@ In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen
 
     * Press firmly on top of the machine. Hold the pressure until the machine has stopped.
 
+## Step 4
+
+!!!note "Silkscreen printing"
+
+    * Use tape to fasten paper onto the plexiglass base.
+    
+    * Place the frame with the silkscreen on the plexiglass base.
+
+    * Add paint in a line onto the silkscreen above the area to be printed.
+
+    * Use firm pressure when dragging the paint across the area. IMPORTANT!:
+    This should only be done in one movement. The results will not be as good if you go more than once over the area.
+
+    * Remove the frame quickly, so that the paint won´t dry with the frame on top of the image.
+
 
 
 
