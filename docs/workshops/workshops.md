@@ -14,3 +14,5 @@ Frosti
 
 
 ## Silkscreen
+
+Check out silkscreen printing [here](silkscreen.md)
