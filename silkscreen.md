@@ -40,11 +40,29 @@ In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen
     * Change the DPI to 203 and finally you click on **Export**.
 
 ### Step 2
+    
+!!!note "Dithering"
+
+    The Gimp program can be used to dither an image. 
+
+    * Open the image in Gimp
+
+    * Click on **Image**, then **mode** and then **Indexed**. 
+
+    * Then you choose the **Use black and white (1-bit) palette** setting.
+    
+    * Choose the type of dithering you want, for example **Floyd-Steinberg (normal)**.
+
+    * Click on the **convert** button.
+
+    * Choose **File** and then **Export as**. Choose the .png format for exporting.
 
 
+### Step 3
+    
+!!!note "Changing the resolution and using grayscale"
 
-
-
+    The [MiScreen a4 program](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) is used to prepare the images
 
 
 
