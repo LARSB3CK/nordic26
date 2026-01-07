@@ -60,9 +60,24 @@ In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen
 
 ### Step 3
     
-!!!note "Changing the resolution and using grayscale"
+!!!note "Prepairing the image for Miscreen A4"
 
-    The [MiScreen a4 program](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) is used to prepare the images
+    The [MiScreen A4 program](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) is used to prepare the images.
+
+    * Drag your image onto the working plane in the program.
+
+    * Click on **Send the...**.
+
+!!!note "Fastening the silkscreen"
+
+    * Put double-tape on the frame.
+    
+    * Fasten the silkscreen on the double-tape. Make sure that it is well stretched.    
+
+    * Place the frame in the machine. Make sure that the frame falls in the right place.
+
+    * Press firmly on top of the machine. Hold the pressure until the machine has stopped.
+
 
 
 
