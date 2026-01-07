@@ -19,7 +19,7 @@ In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen
 
 !!!note "Changing the resolution and using grayscale"
 
-    The process can differ depending on which program you use to process the images. This is an example:
+    The process can differ depending on which program you use to process the images. You can use Photoshop to change an image to greyscale and export it in 203 DPI. Here below is an example using Inkscape for changing the resolution:
 
     * Find an image that you want to use
 

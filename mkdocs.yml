@@ -88,4 +88,4 @@ markdown_extensions:
 
 nav:
 - Home: index.md
-- work: workshops/workshops.md
+- workshops: workshops/workshops.md
