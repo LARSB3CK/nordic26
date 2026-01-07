@@ -86,6 +86,6 @@ markdown_extensions:
   - attr_list
   - md_in_html
 
-nav:
-- Home: index.md
-- workshops: workshops/workshops.md
+# nav:
+# - Home: index.md
+# - workshops: workshops/workshops.md
