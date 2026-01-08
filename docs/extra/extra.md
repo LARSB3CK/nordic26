@@ -1,6 +1,6 @@
 # Extra projects
 
-## MQTT
+## MQTT: Frosti and Árni
 
 Frosti explored the [MQTT](https://en.wikipedia.org/wiki/MQTT) protocol using a simple ESP32C3 demo setup.
 
@@ -10,7 +10,7 @@ For initial testing on Windows, [MQTTX](https://mqttx.app/) can be used.
 
 The public test broker used is: [test.mosquitto.org](https://test.mosquitto.org/)
 
-## MQTT with some Grove stuff (Seeed studio kit)
+**MQTT with some Grove stuff (Seeed studio kit)**
 
 The ESP32C3 connects to WiFi, then connects to the MQTT broker and starts publishing information. After getting the basics working, Frosti wanted to test out the massive kit he bought. We started by connected a variable resistor to it. Connection is simple, just use the included wires to join the sensor to the expansion board. 
 
@@ -42,7 +42,7 @@ Next we included the built in OLED on the Grove expansion board!
 
 ![Frosti + ESP32C3 + MQTT == FUN FUN FUN!](../img/extra/frostiesp.jpg)
 
-## Real communication
+**Real communication**
 
 Next Frosti created his first small MQTT network! 
 
