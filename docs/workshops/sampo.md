@@ -1,4 +1,5 @@
-# Embroidery
+# Sampo milling system
+
 
 Add an image here...
 
@@ -19,8 +20,4 @@ The workshop...
 !!!success "?"
 
     Use...
-
-
-
-
-
+    
