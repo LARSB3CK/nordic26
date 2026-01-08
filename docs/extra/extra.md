@@ -55,13 +55,13 @@ Fun stuff!
 - [Controller](./mqttcontroller.ino)
 - [Light](../mqttlight.ino)
 
-## Frame done in ShopBot
+## Frame done in ShopBot: Lísbet
 
 ![ ](../img/extra/ShopBot700c525.jpg)
 
 
 
-## Rasterizing on two colour laminate
+## Rasterizing on two colour laminate: Lars Erik
 
 ![ ](../img/extra/spiderman700x525.jpg)
 
