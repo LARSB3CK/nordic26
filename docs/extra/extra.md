@@ -54,3 +54,17 @@ Fun stuff!
 
 - [Controller](./mqttcontroller.ino)
 - [Light](../mqttlight.ino)
+
+## Frame done in ShopBot
+
+![ ](../img/extra/ShopBot700c525.jpg)
+
+
+
+## Rasterizing on two colour laminate
+
+![ ](../img/extra/spiderman700x525.jpg)
+
+
+
+
