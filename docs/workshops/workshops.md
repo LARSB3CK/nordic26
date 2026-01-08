@@ -10,7 +10,7 @@ ComfyUI and the Hunyuan 2.1 model
 
 ## Xtool F2 Ultra
 
-Frosti
+Frosti from Vestmannaeyjar
 
 
 ## Silkscreen
