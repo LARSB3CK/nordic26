@@ -4,7 +4,7 @@
 
 ## About the workshop
 
-The workshop began with a 2 hours program where Lars Beck taught the process. Then it was ongoing throught the bootcamp. 
+The workshop began with a 2 hours program where Lars Beck Johannsen taught the process. Then it was ongoing throught the bootcamp. 
 
 ## MiScreen A4
 
