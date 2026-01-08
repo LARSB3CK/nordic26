@@ -116,7 +116,7 @@ The workshop began with a 2 hours program where Lars Beck Johannsen taught the p
     * Remove the frame quickly, so that the paint won´t dry with the frame on top of the image.
 
 
-
+![ ](../img/img_silkscreen/pipe_700x525.jpg)
 
 
 
