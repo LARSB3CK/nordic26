@@ -8,7 +8,11 @@ The workshop began with a 2 hours program where Lars Beck taught the process. Th
 
 ## MiScreen A4
 
-In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) machine was used to create the silkscreen.
+!!!note "The machine"
+
+    In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) machine was used to create the silkscreen.
+
+    ![](../img/img_silkscreen/TheMachine700x221.jpg)
 
 ## Workflow
 
@@ -16,7 +20,7 @@ In this workshop the [MiScreen a4](https://www.risoprinter.de/en/products/screen
 
     The resolution of the image to be used has to be set to 203 DPI when using the MiScreen A4 machine. The file format to be used can for example be .jpg, .jpeg, .png, .bmp and .pdf.
 
-!!!Tip "Dithering or not"
+!!!note "Dithering or not"
 
     When an image is not dithered the print will give you a simple, flat surface. When you use some type of dithering you get different textures, f.ex. like the texture of a newsprint paper. If the image is in grayscale and you want the shading to appear on the print, you have to dither the image.
 
