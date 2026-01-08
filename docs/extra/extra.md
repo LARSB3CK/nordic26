@@ -36,7 +36,7 @@ frosti/b1/telemetry {"device":"frosti-b1","seq":3,"raw":4095,"percent":100.0,"vo
 frosti/b1/telemetry {"device":"frosti-b1","seq":4,"raw":221,"percent":5.4,"voltage":0.18}
 ```
 
-Xiao ESP32C3 code can be found here: [First version](/extra/mqttsensorv1.ino)
+Xiao ESP32C3 code can be found here: [First version](../mqttsensorv1.ino)
 
 Next we included the built in OLED on the Grove expansion board! 
 
@@ -52,5 +52,5 @@ It's meant to simulate a real sensor reading somewhere far away, which then turn
 
 Fun stuff! 
 
-- [Controller](/extra/mqttcontroller.ino)
-- [Light](/extra/mqttlight.ino)
+- [Controller](./mqttcontroller.ino)
+- [Light](../mqttlight.ino)
