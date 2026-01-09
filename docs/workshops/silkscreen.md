@@ -18,7 +18,7 @@ The workshop began with a 2 hours program where Lars Beck taught the process. Th
 
 !!!success "Resolution"
 
-    The resolution of the image to be used has to be set to 203 DPI when using the MiScreen A4 machine. The file format to be used can for example be .jpg, .jpeg, .png, .bmp and .pdf.
+    The resolution of the image to be used has to be set to 203 DPI when using the MiScreen A4 machine. The file format to be used are png, jpg, jpeg, tif, bmp, gif, pdf or ai
 
 !!!note "Dithering or not"
 
