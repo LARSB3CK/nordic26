@@ -24,3 +24,6 @@ The ...
 
 ![ ](../img/img_sampoMilling/MachineTalk700x525.jpg)
 
+![ ](../img/extra/Electronics_700x525.jpg)
+
+
