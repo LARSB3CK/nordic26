@@ -86,7 +86,7 @@ The workshop began with a 2 hours program where Lars Beck Johannsen taught the p
 
     * Drag your image onto the working plane in the program.
 
-    * Click on **Send the...**.
+    * Click on the **Send button**.
 
 !!!note "Fastening the silkscreen"
 
