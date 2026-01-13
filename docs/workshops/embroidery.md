@@ -80,9 +80,13 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
 
      ![ ](../img/img_embroidery/Bird_Size400x396.jpg)
 
-!!! info "Ungroup"
+!!! info "Change the colors now in Inkscape og later in the embroidery machine?"
     
-     * If you want to change some of the colours you have to ungroup the image.
+     * You can either choose colors for the image there or later, in the embroidery machine.
+
+!!! info "Ungroup if you want to edit colors in Inkscape"
+    
+     * If you want to change some of the colors you have to ungroup the image.
      * Choose **Object** -> **Ungroup**.
 
     ![ ](../img/img_embroidery/Bird_Ungroup700x477.jpg)
@@ -94,10 +98,6 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
 
      ![ ](../img/img_embroidery/Bird_Layers700x488.jpg)
 
-!!! info "Do you rather want to choose the colours later?"
-    
-     * You can either choose a colour for the image there or later, in the embroidery machine.
-
 !!! info "Resize the working area"
     
      * Click on **File** and **Document properties**.
@@ -105,10 +105,11 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
 
     ![ ](../img/img_embroidery/Bird_ResizeToContent700x351.jpg)
 
-
 !!! tip "Preview your work"
     
      * Check out how the preview of your work by choosing **Extensions** -> **InkStitch** -> **Visualize and export** -> **Simulator**.
+
+     ![ ](../img/img_embroidery/Bird_Simulations700x412.jpg)
 
 !!! warning "Save now!"
     
@@ -127,9 +128,14 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
     
     * In params you can see a preview of the path that will be embroidered. 
     * You can also adjust settings.
-    * When you are satisfied, click on **Apply and 
+    * When you are satisfied, click on **Apply and close**.
 
-    
+     ![ ](../img/img_embroidery/Bird_ParamsBeforeRearranging700x415.jpg)
+
+     * The embroidery takes longer time when you switch often between colors, so it is better to rearrange the layers so that layers with the same colors are side by side. See the new arrangement here below.
+
+     ![ ](../img/img_embroidery/Bird_ParamsAfterRearranging700x415.jpg)  
+
 
 !!! info "A .pes file generates the sewing path"
     
