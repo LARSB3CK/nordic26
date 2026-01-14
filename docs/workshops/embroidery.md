@@ -142,6 +142,8 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
     * Save it as a .pes file.
     * Use a memory stick to transport the .pes file into the embroidery machine.
 
+     ![ ](../img/img_embroidery/Bird_pesFile700x500.jpg)
+     
 !!! warning "Do not save the .pes file until at the end"
     
      * It can be a problem to edit a .pes file after it has been saved, so save it after you have made all changes and saved the file as an .svg file first.
