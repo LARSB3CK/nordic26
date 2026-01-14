@@ -6,7 +6,7 @@
 
 This workshop was mostly in Karen´s hands. She began by teaching others how to prepaire files and use the embroidery machine. Later on the participants assisted others. This was a flowing workshop throughout the whole bootcamp. 
 
-Last year we had the Icelandic bootcamp in Húsavík and we also had an embroidery workshop there. Anna Reneau covered some of the basics there. See [link here](https://fab-lab-island.github.io/fli-bootcamp-2025/verkefnavinna/Saumavel/). Some of the documentation here below is based on information from this site.
+Last year we had the Icelandic bootcamp in Húsavík and we also had an embroidery workshop there. Anna Reneau and Ólöf covered some of the basics there. See [link here](https://fab-lab-island.github.io/fli-bootcamp-2025/verkefnavinna/Saumavel/). Some of the documentation here below is based on information from this site.
 
 ## The embroidery machine
 
