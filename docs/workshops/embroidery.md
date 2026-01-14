@@ -132,7 +132,7 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
 
      ![ ](../img/img_embroidery/Bird_ParamsBeforeRearranging700x415.jpg)
 
-     * The embroidery takes longer time when you switch often between colors, so it is better to rearrange the layers so that layers with the same colors are side by side. See the new arrangement here below.
+     * The embroidery takes longer time when you switch often between colors, so it is better to rearrange the layers so that layers with the same colors are side by side. See the new arrangement here below. Compare the two color bars.
 
      ![ ](../img/img_embroidery/Bird_ParamsAfterRearranging700x415.jpg)  
 
