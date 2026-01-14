@@ -115,7 +115,6 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
     
      * BEGIN BY CHOOSING **FILE** -> **SAVE**. This is because the program sometimes becomes unresponsive in the next step.
      
-
 !!! info "Settings and preview params"
     
      * Then choose **Extensions** -> **InkStitch** -> **Params**.
@@ -137,9 +136,11 @@ Last year we had the Icelandic bootcamp in Húsavík and we also had an embroide
      ![ ](../img/img_embroidery/Bird_ParamsAfterRearranging700x415.jpg)  
 
 
-!!! info "A .pes file generates the sewing path"
+!!! info "A .pes file"
     
-    In the image below you can see how the .pes file has generated a path for the embroidery machine. You can see how the thread will be laid down.
+    * Click on **File** -> **Save as**.
+    * Save it as a .pes file.
+    * Use a memory stick to transport the .pes file into the embroidery machine.
 
 !!! warning "Do not save the .pes file until at the end"
     
