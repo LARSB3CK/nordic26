@@ -4,21 +4,11 @@
 
 ## About the project
 
-The ...
+Janni from Super Fab Lab Olulu made a 3D-printed milling machine with the assistance of the group that you can see in the image above. When the machine was ready, Janni gave it Fab Lab Húsavík.
 
-## The program
-
-!!!note "The..."
-
-    Use this format for links:
-    [text here..](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) 
+More about the Sampo milling system [here](https://gitlab.com/fab-lab-oulu/sampo) 
 
 
-## Workflow
-
-!!!success "?"
-
-    Use...
 
 ![ ](../img/img_sampoMilling/MachineSandJ_700x525.jpg)
 

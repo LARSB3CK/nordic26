@@ -10,8 +10,7 @@ The workshop was run by Axel Flex Árnason and Jón Þór Sigurðsson. Participa
 
 !!!note "The xTools"
 
-    Use this format for links:
-    The [xTool MetalFab](https://www.xtool.com/pages/xtool-metalfab-laser-welder-and-cnc-cutter) and the [xTool F2 Ultra](https://www.xtool.eu/products/xtool-f2-ultra-60w-mopa-40w-diode-dual-laser-engraver) machine was used...
+    Check out the links to the [xTool MetalFab](https://www.xtool.com/pages/xtool-metalfab-laser-welder-and-cnc-cutter) and the [xTool F2 Ultra](https://www.xtool.eu/products/xtool-f2-ultra-60w-mopa-40w-diode-dual-laser-engraver).
 
 ![ ](../img/img_metalfab/Metal_Selfoss600x800.jpg)
 
