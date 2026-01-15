@@ -4,7 +4,7 @@
 
 ## About the project
 
-Jani Ylioja from Super Fab Lab Olulu made a 3D-printed milling machine with the assistance of the group that you can see in the image above. When the machine was ready, Janni gave it Fab Lab Húsavík.
+Jani Ylioja from Super Fab Lab Oulu made a 3D-printed milling machine with the assistance of the group that you can see in the image above. When the machine was ready, Janni gave it Fab Lab Húsavík.
 
 More about the Sampo milling system [here](https://gitlab.com/fab-lab-oulu/sampo) 
 

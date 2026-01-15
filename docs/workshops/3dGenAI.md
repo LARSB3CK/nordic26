@@ -1,24 +1,13 @@
 # 3D Gen AI
 
-# Creating 3D models from 2D images
-
-Add an image here...
+![ ](../img/img_3DGenAI/3DGenAI_700x525.jpg)
 
 ## About the workshop
 
-The workshop...
+Joakim Wahlberg explained how it was possible to generate 3D models from 2D images.
 
-## The program
-
-!!!note "The..."
-
-    Use this format for links:
-    [text here..](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) machine was used to create the silkscreen.
+![ ](../img/img_3DGenAI/3D_700x525.jpg)
 
 
 
-## Workflow
 
-!!!success "?"
-
-    The...
