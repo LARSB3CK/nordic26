@@ -28,7 +28,7 @@
 
 ![ ](../img/extra/stemIceland_700x525.jpg)
 
-## Prusa Core One
+
 
 
 
