@@ -2,28 +2,11 @@
 
 ![ ](../img/img_silkscreen/TuftingGroup700x525.jpg)
 
-# Creating 3D models from 2D images
-
-Add an image here...
-
 ## About the workshop
 
-The workshop...
+XChiara Alissa Estivariz Lopez from the Textile center in Blönduós ran the workshop. The participants learned how to use tufting guns to create textile projects. 
 
-## The program
+![ ](../img/img_silkscreen/Tufting1_300x400.jpg)  ![ ](../img/img_tufting/Helle_Tufting.jpg)
 
-!!!note "The..."
+![ ](../img/img_tufting/Katy700x525.jpg)
 
-    Use this format for links:
-    [text here..](https://www.risoprinter.de/en/products/screen-printing/riso-miscreen-a4) machine was used to create the silkscreen.
-
-
-
-## Workflow
-
-!!!success "?"
-
-    Use...
-
-
-![ ](../img/img_silkscreen/Tufting1_300x400.jpg)
